@@ -65,7 +65,7 @@ cur = conn.cursor()
 # time = datetime.now().strftime("%B %d, %Y %I:%M%p")
 # cur.execute('INSERT INTO 予約状況(日付, 状況) values(?, ?)', (str(datetime.date), 'hoge'))
 
-cur.execute('CREATE TABLE 予約状況(ID INTEGER PRIMARY KEY AUTOINCREMENT, チェック日時 DEFAULT CURRENT_TIMESTAMP, 日付 TEXT, 状況 TEXT) IF NOT EXISTS')
+cur.execute('CREATE TABLE IF NOT EXISTS 予約状況(ID INTEGER PRIMARY KEY AUTOINCREMENT, チェック日時 DEFAULT CURRENT_TIMESTAMP, 日付 TEXT, 状況 TEXT)')
 conn.commit()
 
 get_next5month(True, cur)
